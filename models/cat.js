@@ -1,18 +1,17 @@
-
-
+const ObjectId = require('mongodb').ObjectId;
 let client = require('../dbConnection');
-let collection;
-collection = client.db().collection('Cat');
+let collection = client.db().collection('Cats');
 
-
-
-
-function postCat(cat,callback) {
-    collection.insertOne(cat,callback);
+function insertCat(cat, callback) {
+    collection.insertOne(cat, callback);
 }
 
-function getAllCats(callback){
+function getAllCats(callback) {
     collection.find({}).toArray(callback);
 }
 
-module.exports={postCat,getAllCats}
+function deleteCat(id, callback) {
+    collection.deleteOne({ _id: new ObjectId(id) }, callback);
+}
+
+module.exports = { insertCat, getAllCats, deleteCat };
