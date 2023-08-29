@@ -10,5 +10,5 @@ const client = new MongoClient(uri, {
         deprecationErrors: true,
     }
 });
-client.connect();
+
 module.exports= client;
