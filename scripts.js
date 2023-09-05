@@ -120,6 +120,10 @@ function getAllCats() {
         }
     })
 }
+let socket = io();
+socket.on('number',(message)=>{
+    console.log( 'the number is'  + message);
+});
 
 $(document).ready(function () {
     $('.materialboxed').materialbox();
