@@ -14,6 +14,6 @@ COPY . .
 # Install node packages, install serve, build the app, and remove dependencies at the end
 RUN npm install 
     
-
+EXPOSE 3003
 # Use a slim nginx image to reduce our image size drastically
 CMD [ "npm" ,"start"]
